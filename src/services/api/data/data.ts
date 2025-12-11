@@ -58,31 +58,4 @@ const useTimelineData = () => {
 // 	return TimelineData;
 // };
 
-// let _TimelineData: any[] = [{}];
-// const useTimelineData = () => {
-// 	// const [TimelineData, setTimeLineData] = useState<any>(_TimelineData);
-// 	const __t = useRef([{}]);
-
-// 	useEffect(() => {
-// 		const fetchTimelineData = async () => {
-// 			try {
-// 				console.log("fetched timeline");
-// 				const response = await fetch("/api/data/timeline");
-// 				if (response.ok) {
-// 					const data = await response.json();
-// 					// setTimeLineData(data || [{}]);
-// 					__t.current = data || [{}];
-// 				} else {
-// 					// setTimeLineData([{}]);
-// 					__t.current = [{}];
-// 				}
-// 			} catch (error) {
-// 				console.error("Failed to fetch TimelineData address:", error);
-// 			}
-// 		};
-// 		fetchTimelineData();
-// 	}, [__t]);
-// 	return __t.current;
-// };
-
 export { useTimelineData };

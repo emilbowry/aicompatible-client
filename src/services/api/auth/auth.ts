@@ -39,22 +39,22 @@ const useAccountId = (): string | null => {
 
 const useRoles = () => {
 	const [role, setRole] = useState<string[]>(["default"]);
+	const user = useSelector(selectUser);
+	useEffect(() => {
+		const fetchRole = async () => {
+			try {
+				const response = await fetch("/api/auth/role");
+				if (response.ok) {
+					const data = await response.json();
+					setRole(data?.role || ["default"]);
+				}
+			} catch (error) {
+				console.error("Failed to fetch role:", error);
+			}
+		};
 
-	// useEffect(() => {
-	// 	const fetchRole = async () => {
-	// 		try {
-	// 			const response = await fetch("/api/auth/role");
-	// 			if (response.ok) {
-	// 				const data = await response.json();
-	// 				setRole(data?.role || ["default"]);
-	// 			}
-	// 		} catch (error) {
-	// 			console.error("Failed to fetch role:", error);
-	// 		}
-	// 	};
-
-	// 	fetchRole();
-	// });
+		fetchRole();
+	}, [user]); // cant run once, i.e [] since then privelages would leak if we logged out or something
 	return role;
 };
 

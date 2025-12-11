@@ -33,7 +33,7 @@ const LoadingFC = () => (
 import { lazy } from "react";
 const DRouter = lazy(() => import("./features/access-managment/router"));
 
-import { useAdmin } from "./services/api/util/admin";
+// import { useAdmin } from "./services/api/util/admin";
 import { useScrollToTop } from "./hooks/ScrollToTop";
 const App: React.FC = () => {
 	const [hasCustomCursor, setHasCustomCursor] = useState(true);
@@ -46,7 +46,7 @@ const App: React.FC = () => {
 	useAnimationTagging();
 	useScrollToTop();
 	useAuthInit();
-	useAdmin();
+	// useAdmin();
 	return (
 		<>
 			<CursorContext

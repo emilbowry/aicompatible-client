@@ -1,7 +1,7 @@
 // src/features/page/page.tsx
 
 import { useContext, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { CursorContext } from "../../components/cursor/Cursor";
 import { useNarrowLayout } from "../../hooks/WindowSizeDependent";
@@ -22,7 +22,7 @@ const Page: React.FC<{
 		setHasCustomCursor(useCursor);
 	}, [setHasCustomCursor, useCursor]);
 	const isNarrow = useNarrowLayout();
-	const location = useLocation().pathname;
+	// const location = useLocation().pathname;
 	const roles = useRoles();
 	const routes = useAccessRoutes(roles);
 	return (
@@ -39,7 +39,7 @@ const Page: React.FC<{
 				/>
 			)}
 			<main
-				key={location}
+				// key={location}
 				style={{
 					...MainStyle,
 				}}
