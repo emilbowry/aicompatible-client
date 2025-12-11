@@ -40,21 +40,21 @@ const useAccountId = (): string | null => {
 const useRoles = () => {
 	const [role, setRole] = useState<string[]>(["default"]);
 
-	useEffect(() => {
-		const fetchRole = async () => {
-			try {
-				const response = await fetch("/api/auth/role");
-				if (response.ok) {
-					const data = await response.json();
-					setRole(data.role);
-				}
-			} catch (error) {
-				console.error("Failed to fetch role:", error);
-			}
-		};
+	// useEffect(() => {
+	// 	const fetchRole = async () => {
+	// 		try {
+	// 			const response = await fetch("/api/auth/role");
+	// 			if (response.ok) {
+	// 				const data = await response.json();
+	// 				setRole(data?.role || ["default"]);
+	// 			}
+	// 		} catch (error) {
+	// 			console.error("Failed to fetch role:", error);
+	// 		}
+	// 	};
 
-		fetchRole();
-	});
+	// 	fetchRole();
+	// });
 	return role;
 };
 
